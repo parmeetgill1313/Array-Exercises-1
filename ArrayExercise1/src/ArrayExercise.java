@@ -21,19 +21,21 @@ public class ArrayExercise {  // begin class
     public static void main(String[] args)throws IOException {  // begin main
     
     // ********* declaration of constants **********
-    
-        int[] MAX = new int[5];
-    
-    // ********** declaration of variables **********
 
-        int list[] = MAX;           //array of 5 ints
+        int MAX = 20;
+        
+    // ********** declaration of variables **********
+    
+        int amount = 0;
+        //int[] MAX = new int[5];
+        int list[] = new int[MAX];           //array of ints
         int n = 0;
         
     // create an instance of the ConsoleReader so that we can read data from the keyboard
     
     	//ConsoleReader console = new ConsoleReader(System.in);
-        ProgramInfo programInfo3 = new ProgramInfo("Array Exercise" + " 1");
-        ProgramInfo endOfProgram = new ProgramInfo("Array Exercise" + " 1");
+        ProgramInfo programInfo3 = new ProgramInfo(" Array Exercise" + " 1");
+        ProgramInfo endOfProgram = new ProgramInfo(" Array Exercise" + " 1");
         
     // ********** Print output Banner **********
     
@@ -41,29 +43,28 @@ public class ArrayExercise {  // begin class
         
     // ************************ get input **********************
     
-       // list[n] = console.readInt();
-      //  list[n] = Integer.parseInt(JOptionPane.showInputDialog("Enter a Number"));
+       //list[n] = console.readInt();
+        amount = Integer.parseInt(JOptionPane.showInputDialog("Enter number of numbers to be entered (Maximum 20)"));
         
-    	for(n = 0; n < 5; n++){//start input for "for loop"
+    	for(n = 0; n < amount; n++){//start input for "for loop"
             //list[n] = console.readInt();
             list[n] = Integer.parseInt(JOptionPane.showInputDialog
                 ("Enter a Number"));
         }// end getting input
 
     // ************************ processing ***************************
-    
-            System.out.println("Original Order: " + (list[0] + ", ") + (list[1]+ ", ") + 
-                    (list[2]+ ", ") + (list[3]+ ", ") + (list[4]));
-            System.out.println("Reverse Order: " + (list[4] + ", ") + (list[3]+ ", ") + 
-                    (list[2]+ ", ") + (list[1]+ ", ") + (list[0]));
-
-            
+        System.out.print("Original Order: ");
+        for(n = 0; n < amount; n++ ){
+            System.out.print(list[n] + ", ");
+        }
+        System.out.print("\nReverse Order: ");
+        for(n = amount - 1; n>= 0; n-- ){
+            System.out.print(list[n] + ", ");
+        }
     // ************************ print output ****************************
-    
-        
-    
+
     // ************************* closing message ************************
-        System.out.println("");
+        System.out.println("\n\nhttps://github.com/parmeetgill1313/Array-Exercises-1");
         System.out.println(endOfProgram.endProgram());
         
     }  // end main
