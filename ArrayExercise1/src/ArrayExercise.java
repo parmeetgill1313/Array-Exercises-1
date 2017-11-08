@@ -29,7 +29,6 @@ public class ArrayExercise {  // begin class
         int MAX = 20;
         int amount = 0;
         int list[] = new int[MAX];           //array of ints
-        int n = 0;
         int num = 0;
         int seeNum = 0;
         
@@ -50,7 +49,7 @@ public class ArrayExercise {  // begin class
        //list[n] = console.readInt();
         amount = Integer.parseInt(JOptionPane.showInputDialog("Enter number of numbers to be entered (Maximum 20)"));
         
-    	for(n = 0; n < amount; n++){//start input for "for loop"
+    	for(int n = 0; n < amount; n++){//start input for "for loop"
             //list[n] = console.readInt();
             list[n] = Integer.parseInt(JOptionPane.showInputDialog ("Enter a Number"));
         }// end getting input
@@ -58,20 +57,31 @@ public class ArrayExercise {  // begin class
     // ************************ processing ***************************
     
         System.out.print("Original Order: ");
-        for(n = 0; n < amount; n++ ){
+        for(int n = 0; n < amount; n++ ){
             System.out.print(list[n] + ", ");
         }
         
         System.out.print("\nReverse Order: ");
-        for(n = amount - 1; n>= 0; n-- ){
+        for(int n = amount - 1; n>= 0; n-- ){
             System.out.print(list[n] + ", ");
         }
         
-        num = Integer.parseInt(JOptionPane.showInputDialog ("Which number do you want to see? Type -1 to stop!"));
+        num = Integer.parseInt(JOptionPane.showInputDialog ("Which place value of the array do you want to see? Type -1 to stop!"));
         
         while (num != stopValue){ 
            seeNum = num - offset;
-           System.out.print("\n\n" + num + ": " + list[seeNum]);
+           System.out.print("\n\nPlace Value: " + num + " = Number: " + list[seeNum]);int maxValue = list[0]; 
+        for(int n = 1; n < list.length; n++){ 
+            if(list[n] > maxValue){ 
+             maxValue = list[n];             
+            } 
+        } 
+        int minValue = list[0];
+        for(int n = 1; n < list.length; n++){ 
+            if(list[n] < minValue){ 
+            minValue = list[n];   
+            } 
+        }
            changeString = JOptionPane.showInputDialog("Do you want to change the number? \nEnter 'true' or 'false' ");
            if (changeString.equals("true")){
              change = true;
@@ -84,9 +94,25 @@ public class ArrayExercise {  // begin class
              }
            num = Integer.parseInt(JOptionPane.showInputDialog ("Which number do you want to see? Type -1 to stop!")); 
         }
-         
-    // ************************ print output -****************************
+        
+        int minValue = list[0];
+        for(int n = 1; n < amount; n++){ 
+            if(list[n] < minValue){ 
+            minValue = list[n];   
+            } 
+        }
+        int maxValue = list[0]; 
+        for(int n = 1; n < amount; n++){ 
+            if(list[n] > maxValue){ 
+             maxValue = list[n];             
+            } 
+        } 
 
+    // ************************ print output -****************************
+    
+        System.out.println("\nMaximum Value: " + maxValue);
+        System.out.println("Minimum Value: " + minValue);
+        
     // ************************* closing message ************************
         System.out.println("\n\nhttps://github.com/parmeetgill1313/Array-Exercises-1");
         System.out.println(endOfProgram.endProgram());
